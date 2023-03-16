@@ -21,7 +21,11 @@ const auth = getAuth();
 
 export const register = async (email, password) => {
   try {
-    const { user } = await signInWithEmailAndPassword(auth, email, password);
+    const { user } = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
     return user;
   } catch (error) {
     toast.error(error.message);
